@@ -1,16 +1,14 @@
-#This is Heroku Deployment Lectre
+# This is Heroku Deployment Lectre
 from flask import Flask, request, render_template
 import os
 import pickle
+
 # import pandas as pd
 
 print("Test")
 print("Test 2")
 print(os.getcwd())
-# path = os.getcwd()
-
-
-
+path = os.getcwd()
 
 # object = pd.read_pickle(r'/Users/abhaymamadapur/Desktop/CE888-Lab10-master/Models/Pickle_RF_Model.pkl')
 with open('/Models/Pickle_RF_Model.pkl', 'rb') as f:
@@ -18,12 +16,13 @@ with open('/Models/Pickle_RF_Model.pkl', 'rb') as f:
 #
 # Index(['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
 #        'exang', 'oldpeak', 'slope', 'ca', 'thal'],
-print("jsnjnj")
-def get_predictions(age, sex, cp, trestbps, chol, fbs, restecg, thalach,exang, oldpeak, slope, ca, thal):
-    mylist = [age, sex, cp, trestbps, chol, fbs, restecg, thalach,exang, oldpeak, slope, ca, thal]
+# print("jsnjnj")
+
+
+def get_predictions(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal):
+    mylist = [age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]
     mylist = [float(i) for i in mylist]
     vals = [mylist]
-
 
     return test.predict(vals)[0]
 
@@ -53,16 +52,17 @@ def my_form_post():
         ca = request.form['ca']
         thal = request.form['thal']
 
-        target = get_predictions(age, sex, cp, trestbps, chol, fbs, restecg, thalach,exang, oldpeak, slope, ca, thal)
+        target = get_predictions(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal)
 
-        if target==1:
+        if target == 1:
             heart_disease = 'Heart Disease Present'
         else:
             heart_disease = 'Heart Disease Absent'
 
-        return render_template('home.html', target = target, heart_disease = heart_disease)
+        return render_template('home.html', target=target, heart_disease=heart_disease)
     else:
         return render_template('home.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
