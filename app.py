@@ -13,7 +13,7 @@ print(os.getcwd())
 
 
 # object = pd.read_pickle(r'/Users/abhaymamadapur/Desktop/CE888-Lab10-master/Models/Pickle_RF_Model.pkl')
-with open('/Users/abhaymamadapur/Desktop/CE888-Lab10-master/Models/Pickle_RF_Model.pkl', 'rb') as f:
+with open('/Models/Pickle_RF_Model.pkl', 'rb') as f:
     test = pickle.load(f)
 #
 # Index(['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
