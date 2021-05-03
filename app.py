@@ -2,9 +2,11 @@
 from flask import Flask, request, render_template
 import os
 import pickle
+# import logging
+# from logging import Formatter, FileHandler
 
 # import pandas as pd
-
+# log.Fatal(http.ListenAndServe(":" + os.Getenv("PORT"), router))
 print("Test")
 print("Test 2")
 print(os.getcwd())
@@ -65,4 +67,4 @@ def my_form_post():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
