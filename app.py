@@ -27,15 +27,15 @@ def get_predictions(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, 
     return test.predict(vals)[0]
 
 
-apps= Flask(__name__)
+app = Flask(__name__)
 
 
-@apps.route('/')
+@app.route('/')
 def homepage():
     return render_template('home.html')
 
 
-@apps.route('/', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def my_form_post():
     if request.method == 'POST':
         age = request.form['age']
@@ -65,4 +65,4 @@ def my_form_post():
 
 
 if __name__ == "__main__":
-    apps.run(debug=True)
+    app.run(debug=True)
