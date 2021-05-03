@@ -11,7 +11,7 @@ print(os.getcwd())
 path = os.getcwd()
 
 # object = pd.read_pickle(r'/Users/abhaymamadapur/Desktop/CE888-Lab10-master/Models/Pickle_RF_Model.pkl')
-with open('/Models/Pickle_RF_Model.pkl', 'rb') as f:
+with open('./Models/Pickle_RF_Model.pkl', 'rb') as f:
     test = pickle.load(f)
 #
 # Index(['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
@@ -65,4 +65,4 @@ def my_form_post():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    apps.run(debug=True)
